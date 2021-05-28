@@ -30,7 +30,7 @@ python start_server.py
 ```
 It takes about 0.5-1.5 hours to generate pattern tables at the first run.
 
-### Demo
+### Demo video
 [![Real rubik solver](http://img.youtube.com/vi/dRhSDgQ13kk/0.jpg)](http://www.youtube.com/watch?v=dRhSDgQ13kk)
 
 
