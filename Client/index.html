@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+
+	<title>The Cube - A Rubik's Cube Game</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
+	<link rel="manifest" href="assets/icons/site.webmanifest" />
+	<link rel="shortcut icon" href="assets/icons/favicon.ico" />
+	<meta name="theme-color" content="#ffffff" />
+
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+</head>
+
+<body>
+	<div id="init" class="init-cube">
+		<button class="webcam-start">Start Webcam Input</button>
+		<button class="webcam-capture">Capture</button>
+		<button class="auto-detect">Disable auto detecting</button>
+		<br />
+		<div class="img-region">
+			<div class="webcam">
+				<video autoplay playsInline class="webcam-show"></video>
+				<canvas class="cube-bounding-box"></canvas>
+				<canvas class="capture-box"></canvas>
+			</div>
+			<div class="oneside-captured">
+				<span class="captured-image">Captured image will go here</span>
+				<canvas class="oneside"></canvas>
+			</div>
+			<div class="color-mapping">
+				<button class="populate-side">Populate</button>
+				<canvas class="mapped-oneside"></canvas>
+			</div>
+		</div>
+		<div class="preview-region">
+			<div class="color-screen">
+				<div class="rubik-grid">
+					<table class="rubik-grid-inner">
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="side-color-picker">
+					<div class="side-color-picker">
+						<table class="side-color-picker-inner">
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="game" class="game">
+		<div class="ui">
+			<div class="ui__background"></div>
+
+			<div class="ui__game"></div>
+
+			<div class="ui__texts">
+				<h1 class="text text--title">
+					<span>THE</span>
+					<span>CUBE</span>
+				</h1>
+				<div class="text text--note">
+					Double tap to start
+				</div>
+				<div class="text text--timer"></div>
+				<div class="text text--complete">
+					<span>Complete!</span>
+				</div>
+				<div class="text text--best-time">
+					<icon trophy></icon>
+					<span>Best Time!</span>
+				</div>
+			</div>
+
+			<div class="ui__prefs">
+				<range name="size" title="Cube Size" list="2,3,4,5"></range>
+				<range name="flip" title="Flip Type" list="Swift&nbsp;,Smooth,Bounce"></range>
+				<range name="scramble" title="Scramble Length" list="20,25,30"></range>
+				<range name="fov" title="Camera Angle" list="Ortographic,Perspective"></range>
+				<range name="theme" title="Color Scheme" list="Cube,Erno,Dust,Camo,Rain"></range>
+			</div>
+
+			<div class="ui__theme">
+				<range name="hue" title="Hue" color></range>
+				<range name="saturation" title="Saturation" color></range>
+				<range name="lightness" title="Lightness" color></range>
+			</div>
+
+			<div class="ui__stats">
+				<div class="stats" style="display:none" name="cube-size">
+					<i>Cube:</i><b>3x3x3</b>
+				</div>
+				<div class="stats" style="display:none" name="total-solves">
+					<i>Total solves:</i><b>-</b>
+				</div>
+				<div class="stats" style="display:none" name="best-time">
+					<i>Best time:</i><b>-</b>
+				</div>
+				<div class="stats" name="worst-time" style="display:none">
+					<i>Worst time:</i><b>-</b>
+				</div>
+				<div class="stats" name="average-5" style="display:none">
+					<i>Average of 5:</i><b>-</b>
+				</div>
+				<div class="stats" name="average-12" style="display:none">
+					<i>Average of 12:</i><b>-</b>
+				</div>
+				<div class="stats" name="average-25" style="display:none">
+					<i>Average of 25:</i><b>-</b>
+				</div>
+				<!-- <button id="newGame">New Game</button> -->
+			</div>
+
+			<div class="ui__buttons">
+				<button class="btn btn--bl btn--manual">Manual Solve</button>
+				<button class="btn btn--br btn--auto">Auto Solve</button>
+				<button class="btn btn--bl btn--stats" style="display: none;">
+					<icon trophy></icon>
+				</button>
+				<button class="btn btn--br btn--prefs" style="display: none;">
+					<icon settings></icon>
+				</button>
+				<button class="btn btn--bl btn--back">
+					<icon back></icon>
+				</button>
+				<button class="btn btn--br btn--theme">
+					<icon theme></icon>
+				</button>
+				<button class="btn btn--br btn--reset">
+					<icon reset></icon>
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<script src="assets/js/tf.min.js"> </script>
+<script src="assets/js/three.js"></script>
+<script src="assets/js/cube.js"></script>
+<script src="assets/js/color_screen.js"></script>
+<script src="assets/js/init_cube.js"></script>

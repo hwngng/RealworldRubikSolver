@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+
+*.sublime-workspace
+*.code-workspace
+*.bak
+
+export/
+
+package-lock.json
+.vscode/
